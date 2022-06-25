@@ -1,0 +1,23 @@
+[
+    {
+        "id": 1,
+        "name": "laptop",
+        "img": "https://i.ibb.co/kgdnDQb/pexels-life-of-pix-7974.jpg",
+        "Description": "Avoid it as it won't bring much value to the user and will probably only cause confusion. Besides that, there is a good chance"
+        
+    },
+    {
+        "id": 2,
+        "name": "mobile",
+        "img": "https://i.ibb.co/KbTBt4Q/phone-screen-with-abstract-marble-aesthetic.jpg",
+        "Description": "Avoid it as it won't bring much value to the user and will probably only cause confusion. Besides that, there is a good chance"
+        
+    },
+    {
+        "id": 3,
+        "name": "Computer",
+        "img": "https://i.ibb.co/n31Lq8M/pexels-serpstat-572056.jpg",
+        "Description": "Avoid it as it won't bring much value to the user and will probably only cause confusion. Besides that, there is a good chance"
+        
+    }
+]
