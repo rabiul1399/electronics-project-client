@@ -1,0 +1,38 @@
+[
+    {
+        "_id": 1,
+        "name": "laptop",
+        "img": "https://i.ibb.co/kgdnDQb/pexels-life-of-pix-7974.jpg",
+        "description": "Avoid it as it won't bring much value to the user and will probably only cause confusion.",
+        "price":432,
+        "stock":32
+        
+    },
+    {
+        "_id": 2,
+        "name": "mobile",
+        "img": "https://i.ibb.co/KbTBt4Q/phone-screen-with-abstract-marble-aesthetic.jpg",
+        "description": "Avoid it as it won't bring much value to the user and will probably only cause confusion.",
+        "price": 543,
+        "stock":33
+        
+    },
+    {
+        "_id": 3,
+        "name": "Computer",
+        "img": "https://i.ibb.co/n31Lq8M/pexels-serpstat-572056.jpg",
+        "description": "Avoid it as it won't bring much value to the user and will probably only cause confusion.",
+        "price": 265,
+        "stock":45
+        
+    },
+    {
+        "_id": 4,
+        "name": "Watch",
+        "img": "https://i.ibb.co/cwLGLk9/pexels-fernando-arcos-190819.jpg",
+        "description": "Avoid it as it won't bring much value to the user and will probably only cause confusion.",
+        "price": 465,
+        "stock":30
+        
+    }
+]

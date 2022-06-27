@@ -1,46 +1,45 @@
 import React, { useRef } from 'react';
-import auth from '../../firebase.init';
-import { useSignInWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useCreateUserWithEmailAndPassword, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
+import auth from '../../firebase.init';
 import { Link } from "react-router-dom";
 
-const Login = () => {
+const Register = () => {
+    const nameRef=useRef()
     const emailRef = useRef();
     const passwordRef =useRef();
     const navigate = useNavigate();
     const [
-        signInWithEmailAndPassword,
+        createUserWithEmailAndPassword,
         user,
         loading,
         error,
-      ] = useSignInWithEmailAndPassword(auth);
+      ] = useCreateUserWithEmailAndPassword(auth);
 
-    if (error) {
+      const [updateProfile, updating, error1] = useUpdateProfile(auth);
+
+    if (error || error1) {
         return (
           <div>
             <p>Error: {error.message}</p>
           </div>
         );
       }
-      if (loading) {
+      if (loading || updating) {
         return <p>Loading...</p>;
       }
       if (user) {
-        console.log(user)
-        return (
-            navigate('/home')
-        );
+        console.log('user',user)
       }
-      
-    const handeleSubmit =event =>{
+    const handeleSubmitRegister =event =>{
         event.preventDefault();
+        const name= nameRef.current.value;
         const email = emailRef.current.value;
-        const password = passwordRef.current.value;
-    //   const name = event.target.email.value
-    //    console.log(name)
+        const password = passwordRef.current.value;        
+        createUserWithEmailAndPassword(email, password)
+        updateProfile({ displayName: name })
 
-        signInWithEmailAndPassword(email, password)
-        
+        navigate('/home')
     }
     return (
         <div className='bg-base-200 py-24'>
@@ -52,12 +51,18 @@ const Login = () => {
             <div className="flex justify-center items-center ">
                 <div className="card w-full max-w-sm shadow-2xl bg-base-100">
                     <div className="card-body">
-                        <form onSubmit={handeleSubmit}>
+                        <form onSubmit={handeleSubmitRegister}>
+                            <div className="form-control">
+                                <label className="label">
+                                    <span className="label-text">Name</span>
+                                </label>
+                                <input ref={nameRef} type="text" placeholder="name" className="input input-bordered" />
+                            </div>
                             <div className="form-control">
                                 <label className="label">
                                     <span className="label-text">Email</span>
                                 </label>
-                                <input ref={emailRef} name="email" type="text" placeholder="email" className="input input-bordered" />
+                                <input ref={emailRef} type="text" placeholder="email" className="input input-bordered" />
                             </div>
                             <div className="form-control">
                                 <label className="label">
@@ -73,7 +78,7 @@ const Login = () => {
                             </div>
 
                         </form>
-                        <h2 className='text-sm'>I have no account! <Link className='underline text-blue-600' to="/register">Register</Link></h2>
+                        <h2 className='text-sm'>Already have on account! <Link className='underline text-blue-600' to="/login">Login</Link></h2>
                     </div>
                 </div>
             </div>
@@ -81,4 +86,4 @@ const Login = () => {
     );
 };
 
-export default Login;
+export default Register;
