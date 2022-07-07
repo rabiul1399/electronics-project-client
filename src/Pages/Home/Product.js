@@ -32,14 +32,14 @@ const Product = ({ product }) => {
                     <p>Price: {price}</p>
                     <p>Stock: {stock}</p>
                     <div className=''>
-                        <p>Order: 
-                            <span className='bg-base-200 w-36 rounded-lg pb-1   font-semibold  '>
+                        <div>Order: 
+                            <div className='bg-base-200 w-36 rounded-lg pb-1   font-semibold  '>
                             <span  onClick={mainus} className='mr-6 text-3xl cursor-pointer'><button className='btn btn-sm'>-</button></span>                         
                             <span  className='pb-2' >{value}</span>
                             <span onClick={plus} className='ml-6 text-3xl cursor-pointer'>
                                 <button className='btn btn-sm'>+</button></span>
-                        </span>
-                        </p>
+                        </div>
+                        </div>
                     </div>
                     <div className="card-actions">
                         <button onClick={handaleBuyNow}  className="btn btn-primary hover:btn-success transition duration-700 ease-in-out hover:scale-110  
