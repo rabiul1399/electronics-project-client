@@ -1,7 +1,25 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const Product = ({ product }) => {
-    const { name, img, description, price, stock } = product;
+    const {_id, name, img, description, price, stock } = product;
+  
+    const [value,setValue] = useState(0)
+    let a = 0;
+    let b= 0;
+    
+    const plus = () =>{
+        a= value+1
+        setValue(a)
+    }
+    const mainus = () =>{
+        b = value-1
+        setValue(b)
+    }
+
+    const handaleBuyNow = () =>{
+        console.log(_id,name,price,value)
+    }
+
     return (
         <div>
             <div className="card bg-base-100 shadow my-4 hover:shadow-2xl hover:transition hover:duration-700 hover:ease-in-out hover:-translate-y-1 hover:scale-110 duration-700  skew-y-6 hover:skew-y-0  ">
@@ -13,18 +31,18 @@ const Product = ({ product }) => {
                     <p>Description:{description}</p>
                     <p>Price: {price}</p>
                     <p>Stock: {stock}</p>
-                    <div>
+                    <div className=''>
                         <p>Order: 
-                            <div className=' wrapper'>
-                            <span>-</span>
-                            <span>01</span>
-                            <span>+</span>
-                        </div>
+                            <span className='bg-base-200 w-36 rounded-lg pb-1   font-semibold  '>
+                            <span  onClick={mainus} className='mr-6 text-3xl cursor-pointer'><button className='btn btn-sm'>-</button></span>                         
+                            <span  className='pb-2' >{value}</span>
+                            <span onClick={plus} className='ml-6 text-3xl cursor-pointer'>
+                                <button className='btn btn-sm'>+</button></span>
+                        </span>
                         </p>
-
                     </div>
                     <div className="card-actions">
-                        <button className="btn btn-primary hover:btn-success transition duration-700 ease-in-out hover:scale-110  
+                        <button onClick={handaleBuyNow}  className="btn btn-primary hover:btn-success transition duration-700 ease-in-out hover:scale-110  
                                 ">Buy Now</button>
                     </div>
                 </div>

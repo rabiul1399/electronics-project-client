@@ -4,7 +4,12 @@ module.exports = {
     "./src/**/*.{js,jsx,ts,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage:{
+        'bghero': "url('./src/images/XoDO.gif')",
+       
+      }
+    },
   },
   plugins: [require("daisyui")],
 }
